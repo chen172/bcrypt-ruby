@@ -105,13 +105,20 @@ my_password == "not my password" #=> false
 Check the rdocs for more details -- BCrypt, BCrypt::Password.
 
 ## How `bcrypt()` works
+## `bcrypt()`是如何工作的
 
 `bcrypt()` is a hashing algorithm designed by Niels Provos and David Mazières of the OpenBSD Project.
 
+`bcrypt()`是一个哈希算法
+
 ### Background
+### 背景
 
 Hash algorithms take a chunk of data (e.g., your user's password) and create a "digital fingerprint," or hash, of it.
 Because this process is not reversible, there's no way to go from the hash back to the password.
+
+Hash算法输入一串数据（比如用户的密码），然后根据它创建一个数字指纹或者hash。
+因为这个过程是不可逆的，从hash转化为密码是不可能的。
 
 In other words:
 
@@ -125,6 +132,8 @@ You can store the hash and check it against a hash made of a potentially valid p
 
 But even this has weaknesses -- attackers can just run lists of possible passwords through the same algorithm, store the
 results in a big database, and then look up the passwords by their hash:
+
+但是它还是有弱点的，攻击者可以对一系列密码运行同样的算法。
 
     PrecomputedPassword.find_by_hash(<unique gibberish>).password #=> "secret1"
 
@@ -188,9 +197,13 @@ The default cost can be overridden as needed by passing an options hash with a d
 `bcrypt()` is currently used as the default password storage hash in OpenBSD, widely regarded as the most secure operating
 system available.
 
+`bcrypt()`被OpenBSD作为默认的密码储存算法。
+
 For a more technical explanation of the algorithm and its design criteria, please read Niels Provos and David Mazières'
 Usenix99 paper:
 https://www.usenix.org/events/usenix99/provos.html
+
+关于这个算法的设计，可以参考上面的文章
 
 If you'd like more down-to-earth advice regarding cryptography, I suggest reading <i>Practical Cryptography</i> by Niels
 Ferguson and Bruce Schneier:
