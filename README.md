@@ -9,15 +9,20 @@ An easy way to keep your users' passwords secure.
 
 
 ## Why you should use `bcrypt()`
+## 为什么你应该使用 `bcrypt()`
 
 If you store user passwords in the clear, then an attacker who steals a copy of your database has a giant list of emails
 and passwords. Some of your users will only have one password -- for their email account, for their banking account, for
 your application. A simple hack could escalate into massive identity theft.
+如果你以明文的方式储存用户密码，那么得到你的数据库的攻击者就可以得到大量的邮件和密码。
+你的其中一些用户对于他们的电子邮件，银行账户，你的应用，可能使用同一个密码。
 
 It's your responsibility as a web developer to make your web application secure -- blaming your users for not being
 security experts is not a professional response to risk.
+作为一个web开发者，确保你的应用安全是你的责任。
 
 `bcrypt()` allows you to easily harden your application against these kinds of attacks.
+`bcrypt()`可以让你的应用对抗这种攻击
 
 *Note*: JRuby versions of the bcrypt gem `<= 2.1.3` had a [security
 vulnerability](https://www.mindrot.org/files/jBCrypt/internat.adv) that
